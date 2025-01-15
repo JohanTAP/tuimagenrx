@@ -18,10 +18,10 @@ export function Hero ()
 
             <div className="relative z-10 flex h-full items-center justify-center">
                 <div className="text-center">
-                    <h1 className="mb-4 text-4xl font-bold text-white sm:text-5xl md:text-6xl">
+                    <h1 className="mb-4 text-4xl font-bold text-white sm:text-5xl md:text-6xl break-words">
                         RADIOGRAFÍAS DENTALES 100% DIGITALES
                     </h1>
-                    <p className="mb-8 text-lg text-white/90 sm:text-xl md:text-2xl">
+                    <p className="mb-8 text-lg text-white/90 sm:text-xl md:text-2xl break-words">
                         Contamos con la última tecnología dental para tratamientos exitosos
                     </p>
                     <div className="flex justify-center space-x-4">
