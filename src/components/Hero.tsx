@@ -14,7 +14,7 @@ export function Hero() {
                 Tu navegador no soporta el tag de video.
             </video>
 
-            <div className="absolute inset-0 bg-black/70" /> {/* Aumentado el contraste */}
+            <div className="absolute inset-0 bg-black/70" />
 
             <div className="relative z-10 flex h-full items-center justify-center">
                 <div className="text-center">

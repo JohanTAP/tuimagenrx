@@ -25,7 +25,7 @@ export function Header ()
     const [ isOpen, setIsOpen ] = useState( false )
 
     return (
-        <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <header className="sticky top-0 z-50 bg-primary backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="flex h-16 items-center justify-between px-4">
                 <a href="/" className="flex items-center space-x-2">
                     <img
@@ -51,7 +51,7 @@ export function Header ()
                     <SheetTrigger asChild>
                         <Button
                             variant="ghost"
-                            className="px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
+                            className="px-0 text-base hover:bg-indigo-700 focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
                         >
                             <Menu className="h-5 w-5" />
                             <span className="sr-only">Abrir Menú</span>
