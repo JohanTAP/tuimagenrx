@@ -36,8 +36,8 @@ export const Footer = () =>
                         <img
                             src="/Logo-Transparente.webp"
                             alt="TuImagenRx Logo"
-                            width={192}
-                            height={68}
+                            width={150}
+                            height={53}
                             loading="lazy"
                         />
                         <p className="text-zinc-700 text-sm mt-3">
