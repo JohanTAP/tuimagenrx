@@ -26,25 +26,25 @@ const branches = [
     },
 ];
 
-const Footer = () =>
+export const Footer = () =>
 {
     return (
-        <footer id="contacto" className="bg-muted py-5 text-foreground">
+        <footer id="contacto" className="bg-muted py-5">
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                     <div className="flex flex-col items-start">
                         <img
                             src="/Logo-Transparente.webp"
-                            alt="TuImagenRx"
+                            alt="TuImagenRx Logo"
                             className="w-48 h-auto"
                         />
-                        <p className="text-muted-foreground text-sm mt-3">
-                            RADIOGRAFÍAS DENTALES DIGITALES EN TALCA Y CHILLÁN
+                        <p className="text-zinc-700 text-sm mt-3">
+                            Radiografías dentales digitales en Talca y Chillán
                         </p>
                     </div>
 
                     <div className="col-span-2">
-                        <h6 className="text-lg font-bold text-primary mb-2">Sucursales</h6>
+                        <h2 className="text-lg font-bold text-primary mb-2">Sucursales</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             { branches.map( ( branch, index ) => (
                                 <div key={ index } className="flex items-start">
@@ -59,38 +59,68 @@ const Footer = () =>
                     </div>
 
                     <div>
-                        <h6 className="text-lg font-bold text-primary mb-2">Contáctanos</h6>
+                        <h2 className="text-lg font-bold text-primary mb-2">Contáctanos</h2>
                         <div className="flex items-center mb-1">
-                            <Mail className="w-5 h-5 text-primary mr-2" />
-                            <a href="mailto:contacto@tuimagenrx.cl" className="text-sm text-foreground hover:underline">
+                            <Mail className="w-5 h-5 text-primary mr-2" aria-hidden="true" />
+                            <a 
+                                href="mailto:contacto@tuimagenrx.cl" 
+                                className="text-sm text-zinc-700 hover:underline min-w-[44px] min-h-[44px] flex items-center"
+                            >
                                 contacto@tuimagenrx.cl
                             </a>
                         </div>
 
-                        <h6 className="text-lg font-bold text-primary mb-2">Síguenos</h6>
+                        <h2 className="text-lg font-bold text-primary mb-2">Síguenos</h2>
                         <div className="flex space-x-4">
-                            <a href="http://facebook.com/tuimagenrx" target="_blank" rel="noopener noreferrer">
-                                <Facebook className="w-6 h-6 text-primary hover:scale-110 transition-transform" />
+                            <a 
+                                href="http://facebook.com/tuimagenrx" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="min-w-[44px] min-h-[44px] flex items-center justify-center"
+                                aria-label="Síguenos en Facebook"
+                            >
+                                <Facebook className="w-6 h-6 text-primary hover:scale-110 transition-transform" aria-hidden="true" />
                             </a>
-                            <a href="http://instagram.com/tuimagenrx" target="_blank" rel="noopener noreferrer">
-                                <Instagram className="w-6 h-6 text-primary hover:scale-110 transition-transform" />
+                            <a 
+                                href="http://instagram.com/tuimagenrx" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="min-w-[44px] min-h-[44px] flex items-center justify-center"
+                                aria-label="Síguenos en Instagram"
+                            >
+                                <Instagram className="w-6 h-6 text-primary hover:scale-110 transition-transform" aria-hidden="true" />
                             </a>
-                            <a href="http://tiktok.com/@tuimagenrx" target="_blank" rel="noopener noreferrer">
-                                <Music2 className="w-6 h-6 text-primary hover:scale-110 transition-transform" />
+                            <a 
+                                href="http://tiktok.com/@tuimagenrx" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="min-w-[44px] min-h-[44px] flex items-center justify-center"
+                                aria-label="Síguenos en TikTok"
+                            >
+                                <Music2 className="w-6 h-6 text-primary hover:scale-110 transition-transform" aria-hidden="true" />
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <Separator className="my-3" />
+                <hr className="my-3 border-zinc-200" />
 
-                <div className="flex justify-between items-center text-sm text-muted-foreground">
+                <div className="flex justify-between items-center text-sm text-zinc-700">
                     <span>© { new Date().getFullYear() } Tu Imagen Rx - Todos los derechos reservados</span>
-                    <a href="https://agenciaideaspro.cl" target="_blank" rel="noopener noreferrer" className="font-bold text-primary hover:underline">
+                    <a 
+                        href="https://agenciaideaspro.cl" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="font-bold text-primary hover:underline min-w-[44px] min-h-[44px] flex items-center"
+                    >
                         Diseñado por Agencia Ideas Pro
                     </a>
-                    <a href="#top" className="bg-primary p-2 rounded-full text-white shadow-lg hover:bg-opacity-80 transition">
-                        <ArrowUp className="w-6 h-6" />
+                    <a 
+                        href="#top" 
+                        className="bg-primary p-3 rounded-full text-white shadow-lg hover:bg-opacity-80 transition min-w-[44px] min-h-[44px] flex items-center justify-center"
+                        aria-label="Volver arriba"
+                    >
+                        <ArrowUp className="w-6 h-6" aria-hidden="true" />
                     </a>
                 </div>
             </div>
