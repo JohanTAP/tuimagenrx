@@ -89,9 +89,9 @@ const Faq = () =>
             className={ `py-12 bg-background text-foreground transition-all duration-700 ease-out transform 
                 ${ inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10" }` }
         >
-            <div className="container mx-auto px-48 text-center">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 className="text-4xl font-bold">
-                    <span style={ { fontSize: "50px", transform: "skew(-10deg)", display: "inline-block", fontWeight: "bold", color: "hsl(var(--primary))" } }>
+                    <span className="text-[50px] skew-x-[-10deg] inline-block font-bold text-primary">
                         Preguntas Frecuentes
                     </span>
                 </h2>
@@ -109,7 +109,7 @@ const Faq = () =>
                     ) ) }
                 </Accordion>
             </div>
-        </section >
+        </section>
     );
 };
 

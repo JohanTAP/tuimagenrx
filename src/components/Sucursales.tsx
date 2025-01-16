@@ -76,19 +76,19 @@ const BranchCard: React.FC<BranchCardProps> = ( { name, address, building, whats
                 ${ inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10" }` }
             style={ { transitionDelay: `${ delay }s` } }
         >
-            <Card className="group relative flex sm:flex-row h-80 overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-[1.02]">
+            <Card className="group relative flex sm:flex-row h-[410px] overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-[1.02]">
                 <div className="w-1/3 h-full">
                     <img
                         src={ image }
                         alt={ name }
-                        width={400}
-                        height={300}
+                        width={ 400 }
+                        height={ 300 }
                         loading="lazy"
                         className="w-full h-full object-cover"
                     />
                 </div>
 
-                <div className="w-2/3 p-6 flex flex-col justify-center">
+                <div className="w-2/3 p-2 flex flex-col justify-center">
                     <CardHeader>
                         <CardTitle className="text-lg font-bold text-primary">{ name }</CardTitle>
                         <p className="text-sm text-muted-foreground flex items-center">

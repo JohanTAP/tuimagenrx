@@ -48,9 +48,9 @@ const TeamCard: React.FC<TeamCardProps> = ( { name, title, description, image, a
                 ${ inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10" }` }
             style={ { transitionDelay: `${ delay }s` } }
         >
-            <Card className="group relative h-80 overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-[1.02] flex flex-col">
+            <Card className="group relative h-[390px] flex flex-col justify-between overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-[1.02]">
                 <div
-                    className="h-40 w-full bg-cover bg-center"
+                    className="h-40 w-full bg-cover bg-center flex-shrink-0"
                     style={ { backgroundImage: `url(${ image })` } }
                 >
                     <img
@@ -63,12 +63,12 @@ const TeamCard: React.FC<TeamCardProps> = ( { name, title, description, image, a
                     />
                 </div>
 
-                <div className="flex flex-col justify-between flex-grow p-6">
+                <div className="flex flex-col flex-grow p-3">
                     <CardHeader>
                         <CardTitle className="text-lg font-bold text-primary">{ name }</CardTitle>
                         { title && <p className="text-muted-foreground text-sm">{ title }</p> }
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="flex-grow">
                         <CardDescription className="text-sm text-muted-foreground">{ description }</CardDescription>
                     </CardContent>
                 </div>
@@ -85,7 +85,7 @@ const Equipo = () => (
             backgroundImage: `url('/equipo.webp')`,
         } }
     >
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
                 <h2 className="text-4xl font-bold">
                     <span
@@ -101,7 +101,7 @@ const Equipo = () => (
                     </span>
                 </h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
                 { teamMembers.map( ( member, index ) => (
                     <TeamCard
                         key={ index }
