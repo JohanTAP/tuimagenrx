@@ -122,6 +122,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ( { title, description, image, a
                     <img
                         src={ image }
                         alt={ alt }
+                        width={ 300 }
+                        height={ 200 }
+                        loading="lazy"
                         className="w-full h-full object-cover block"
                     />
                 </div>

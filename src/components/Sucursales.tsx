@@ -81,6 +81,9 @@ const BranchCard: React.FC<BranchCardProps> = ( { name, address, building, whats
                     <img
                         src={ image }
                         alt={ name }
+                        width={400}
+                        height={300}
+                        loading="lazy"
                         className="w-full h-full object-cover"
                     />
                 </div>

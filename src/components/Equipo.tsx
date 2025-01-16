@@ -52,9 +52,16 @@ const TeamCard: React.FC<TeamCardProps> = ( { name, title, description, image, a
                 <div
                     className="h-40 w-full bg-cover bg-center"
                     style={ { backgroundImage: `url(${ image })` } }
-                    role="img"
-                    aria-label={ alt }
-                ></div>
+                >
+                    <img
+                        src={ image }
+                        alt={ alt }
+                        width={ 476 }
+                        height={ 381 }
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
 
                 <div className="flex flex-col justify-between flex-grow p-6">
                     <CardHeader>

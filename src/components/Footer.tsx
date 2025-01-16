@@ -36,7 +36,10 @@ export const Footer = () =>
                         <img
                             src="/Logo-Transparente.webp"
                             alt="TuImagenRx Logo"
-                            className="w-48 h-auto"
+                            width={192}
+                            height={80}
+                            loading="lazy"
+                            className="w-48 h-20"
                         />
                         <p className="text-zinc-700 text-sm mt-3">
                             Radiografías dentales digitales en Talca y Chillán
