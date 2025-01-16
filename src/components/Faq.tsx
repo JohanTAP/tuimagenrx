@@ -85,7 +85,7 @@ const Faq = () =>
     return (
         <section
             ref={ ref }
-            id="preguntas"
+            id="faq"
             className={ `py-12 bg-background text-foreground transition-all duration-700 ease-out transform 
                 ${ inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10" }` }
         >

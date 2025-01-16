@@ -1,9 +1,10 @@
 ---
 import "/public/globals.css";
+import { Header } from "@/components/Header";
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -14,7 +15,10 @@ import "/public/globals.css";
       content="Radiografías dentales digitales en Talca y Chillán, entregamos exámenes con rapidez según tus necesidades. Calidad y eficiencia a tu servicio"
     />
   </head>
-  <body style="height: var(--dynamic-height);">
-    <slot />
+  <body class="flex min-h-screen flex-col">
+    <Header client:load />
+    <div class="flex-1 overflow-auto">
+      <slot />
+    </div>
   </body>
 </html>

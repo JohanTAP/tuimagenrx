@@ -66,8 +66,11 @@
   }
   body {
     @apply bg-background text-foreground;
-    height: var(--dynamic-height);
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .translate-x-full {

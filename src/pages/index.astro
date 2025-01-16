@@ -1,20 +1,20 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Calidad } from "@/components/Calidad";
 import Examenes from "@/components/Examenes";
 import Equipo from "@/components/Equipo";
 import Sucursales from "@/components/Sucursales";
 import Faq from "@/components/Faq";
+import Footer from "@/components/Footer";
 ---
 
 <Layout style="height: 100dvh;">
-  <Header client:load />
   <Hero client:load />
   <Calidad client:load />
   <Examenes client:load />
   <Equipo client:load />
   <Sucursales client:load />
   <Faq client:load />
+  <Footer client:load />
 </Layout>
