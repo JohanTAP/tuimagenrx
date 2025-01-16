@@ -68,7 +68,7 @@ export function Calidad ()
             id="calidad"
             className="relative py-12 bg-cover bg-center"
             style={ {
-                backgroundImage: "url('/public/calidad.webp')",
+                backgroundImage: "url('@/assets/calidad.webp')",
             } }
         >
             <div className="grid gap-3 px-4 sm:px-8 md:px-16 lg:px-48">
