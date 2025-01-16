@@ -113,23 +113,24 @@ const ServiceCard: React.FC<ServiceCardProps> = ( { title, description, image, a
     return (
         <div
             ref={ ref }
-            className={ `relative w-full transform-gpu transition-all duration-500 ease-out 
+            className={ `relative w-full h-full transform-gpu transition-all duration-500 ease-out 
                 ${ inView ? "opacity-100 scale-100" : "opacity-0 scale-95" }` }
             style={ { transitionDelay: `${ delay }s` } }
         >
-            <Card className="group relative overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-[1.02]">
-                <div
-                    className="h-48 w-full bg-cover bg-center"
-                    style={ { backgroundImage: `url(${ image })` } }
-                    role="img"
-                    aria-label={ alt }
-                ></div>
+            <Card className="relative flex flex-col h-full overflow-hidden rounded-lg shadow-lg transform hover:scale-[1.02]">
+                <div className="w-full h-[200px]">
+                    <img
+                        src={ image }
+                        alt={ alt }
+                        className="w-full h-full object-cover block"
+                    />
+                </div>
 
-                <div className="p-6 flex flex-col justify-between">
-                    <CardHeader>
-                        <CardTitle className="text-lg font-bold text-primary">{ title }</CardTitle>
+                <div className="p-4 flex flex-col flex-grow">
+                    <CardHeader className="p-0">
+                        <CardTitle className="text-base font-bold text-primary">{ title }</CardTitle>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="min-h-[100px] flex items-center p-0">
                         <CardDescription className="text-sm text-muted-foreground">{ description }</CardDescription>
                     </CardContent>
                 </div>
@@ -139,24 +140,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ( { title, description, image, a
 };
 
 const Examenes = () => (
-    <section id="examenes" className="py-12 bg-background text-foreground">
-        <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold">
-                    <span
-                        style={ {
-                            fontSize: "50px",
-                            transform: "skew(-10deg)",
-                            display: "inline-block",
-                            fontWeight: "bold",
-                            color: "hsl(var(--primary))",
-                        } }
-                    >
-                        Nuestros Servicios
-                    </span>
+    <section id="examenes" className="py-10 bg-background text-foreground">
+        <div className="container mx-auto px-4">
+            <div className="text-center mb-10">
+                <h2 className="text-3xl font-bold text-primary">
+                    <span className="inline-block transform skew-x-[-10deg]">Nuestros Servicios</span>
                 </h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 { services.map( ( service, index ) => (
                     <ServiceCard
                         key={ index }
@@ -164,7 +155,7 @@ const Examenes = () => (
                         description={ service.description }
                         image={ service.image }
                         alt={ service.alt }
-                        delay={ Math.min( index * 0.15, 0.6 ) }
+                        delay={ Math.min( index * 0.1, 0.4 ) }
                     />
                 ) ) }
             </div>

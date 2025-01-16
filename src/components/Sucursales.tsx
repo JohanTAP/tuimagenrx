@@ -125,7 +125,7 @@ const BranchCard: React.FC<BranchCardProps> = ( { name, address, building, whats
 };
 
 const Sucursales = () => (
-    <section id="sucursales" className="py-12 bg-gradient-to-b from-[#e6e4f1] to-[#fdfdfd] text-foreground relative">
+    <section id="sucursales" className="py-12 bg-gradient-to-b from-[#fdfdfd] to-[#e6e4f1] text-foreground relative">
         <div className="container mx-auto px-6">
             <div className="text-center mb-8">
                 <h2 className="text-4xl font-bold">

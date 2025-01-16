@@ -24,7 +24,7 @@ const FlipBox: React.FC<FlipBoxProps> = ( { icon, title, description, delay } ) 
             style={ { transitionDelay: `${ delay }s` } }
         >
             <Card
-                className="group relative rounded-lg shadow-lg transition-transform hover:scale-105 overflow-visible"
+                className="group relative rounded-lg shadow-lg transition-transform hover:scale-[1.02] overflow-visible"
             >
                 <CardHeader className="flex flex-col items-center text-center">
                     <div className="rounded-full bg-gray-100 p-4">{ icon }</div>
