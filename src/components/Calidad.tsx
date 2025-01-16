@@ -14,24 +14,30 @@ interface FlipBoxProps
 
 const FlipBox: React.FC<FlipBoxProps> = ( { icon, title, description, delay } ) =>
 {
-    const { ref, inView } = useInView( { triggerOnce: true, threshold: 0.2 } );
+    const { ref, inView } = useInView( {
+        triggerOnce: true,
+        threshold: 0,
+        rootMargin: '100px 0px',
+    } );
 
     return (
         <div
             ref={ ref }
-            className={ `relative w-full max-w-sm transform-gpu transition-all duration-500 ease-out 
-                ${ inView ? "translate-x-0 opacity-100" : "translate-x-full opacity-0" }` }
+            className={ `relative w-full max-w-md transform-gpu transition-all duration-700 ease-out px-4
+                ${ inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-full" }` }
             style={ { transitionDelay: `${ delay }s` } }
         >
-            <Card
-                className="group relative rounded-lg shadow-lg transition-transform hover:scale-[1.02] overflow-visible"
-            >
-                <CardHeader className="flex flex-col items-center text-center">
-                    <div className="rounded-full bg-gray-100 p-4">{ icon }</div>
-                    <CardTitle className="text-lg font-semibold text-foreground">{ title }</CardTitle>
+            <Card className="group relative h-[225px] w-[350px] p-6 rounded-lg shadow-lg transition-transform hover:scale-[1.02] flex flex-col items-center justify-center text-center">
+                <CardHeader className="flex flex-col items-center justify-center space-y-4 p-0">
+                    <div className="rounded-full bg-primary/10 p-4 flex items-center justify-center">
+                        { icon }
+                    </div>
+                    <CardTitle className="text-lg font-bold text-primary">{ title }</CardTitle>
                 </CardHeader>
-                <CardContent>
-                    <CardDescription className="text-sm text-foreground/60">{ description }</CardDescription>
+                <CardContent className="flex-grow flex flex-col items-center justify-center text-center">
+                    <CardDescription className="text-sm text-muted-foreground">
+                        { description }
+                    </CardDescription>
                 </CardContent>
             </Card>
         </div>
@@ -66,21 +72,21 @@ export function Calidad ()
     return (
         <section
             id="calidad"
-            className="relative py-12 bg-cover bg-center"
-            style={ {
-                backgroundImage: "url('/calidad.webp')",
-            } }
+            className="relative py-12 bg-cover bg-center min-h-screen w-full overflow-hidden flex items-start lg:px-48"
+            style={ { backgroundImage: "url('/calidad.webp')" } }
         >
-            <div className="grid gap-3 px-4 sm:px-8 md:px-16 lg:px-48">
-                { flipBoxes.map( ( box, index ) => (
-                    <FlipBox
-                        key={ index }
-                        icon={ box.icon }
-                        title={ box.title }
-                        description={ box.description }
-                        delay={ Math.min( index * 0.15, 0.6 ) }
-                    />
-                ) ) }
+            <div className="container mx-auto flex justify-start">
+                <div className="grid grid-cols-1 gap-6">
+                    { flipBoxes.map( ( box, index ) => (
+                        <FlipBox
+                            key={ index }
+                            icon={ box.icon }
+                            title={ box.title }
+                            description={ box.description }
+                            delay={ Math.min( index * 0.1, 0.4 ) }
+                        />
+                    ) ) }
+                </div>
             </div>
         </section>
     );
