@@ -69,7 +69,7 @@ const Equipo = () => (
                 <h2 className="text-4xl font-bold mb-4">
                     <span
                         style={ {
-                            fontSize: "69px",
+                            fontSize: "50px",
                             transform: "skew(-10deg)",
                             display: "inline-block",
                             fontWeight: "bold",

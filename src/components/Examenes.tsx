@@ -138,11 +138,11 @@ const Examenes = () => (
                 <h2 className="text-4xl font-bold mb-4">
                     <span
                         style={ {
-                            fontSize: "69px",
+                            fontSize: "50px",
                             transform: "skew(-10deg)",
                             display: "inline-block",
                             fontWeight: "bold",
-                            color: "hsl(var(--primary))", // Asegurar color primario
+                            color: "hsl(var(--primary))",
                         } }
                     >
                         Nuestros Servicios

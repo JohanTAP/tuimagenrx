@@ -9,13 +9,13 @@ import
     SheetContent,
     SheetTrigger,
 } from "@/components/ui/sheet"
-import astroLogo from '@/assets/astro.svg';
+import astroLogo from '/public/astro.svg';
 
 const navItems = [
     { name: "Inicio", href: "/" },
     { name: "Calidad", href: "#calidad" },
     { name: "Exámenes", href: "#examenes" },
-    { name: "Nuestro Equipo", href: "#nuestro-equipo" },
+    { name: "Nuestro Equipo", href: "#equipo" },
     { name: "Sucursales", href: "#sucursales" },
     { name: "Preguntas Frecuentes", href: "#faq" },
     { name: "Contáctenos", href: "#contacto" },
