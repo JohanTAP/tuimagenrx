@@ -34,7 +34,7 @@ const Footer = () =>
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                     <div className="flex flex-col items-start">
                         <img
-                            src="https://tuimagenrx.cl/wp-content/uploads/2024/02/Logo-Transparente.png"
+                            src="/Logo-Transparente.webp"
                             alt="TuImagenRx"
                             className="w-48 h-auto"
                         />

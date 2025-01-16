@@ -8,21 +8,21 @@ const teamMembers = [
         name: "Dra. Paula Ortiz Cantos",
         title: "Directora Clínica del centro radiológico",
         description: "Radióloga Oral y Maxilofacial",
-        image: "https://tuimagenrx.cl/wp-content/uploads/2024/02/paula-ortiz-cantos-476x381-1.png",
+        image: "/paula-ortiz-cantos-476x381-1.webp",
         alt: "Dra. Paula Ortiz Cantos",
     },
     {
         name: "Dr. Alejandro Hidalgo Rivas",
         title: "",
         description: "Radiólogo Oral y Maxilofacial",
-        image: "https://tuimagenrx.cl/wp-content/uploads/2024/02/alejandro-hidalgo-radiologo-tu-imagen-476x381-1.png",
+        image: "/alejandro-hidalgo-radiologo-tu-imagen-476x381-1.webp",
         alt: "Dr. Alejandro Hidalgo Rivas",
     },
     {
         name: "Dra. Joseline Fritz Cifuentes",
         title: "",
         description: "Radióloga Oral y Maxilofacial",
-        image: "https://tuimagenrx.cl/wp-content/uploads/2024/02/joseline-fritz-radiologa-tu-imagen-476x381-1.png",
+        image: "/joseline-fritz-radiologa-tu-imagen-476x381-1.webp",
         alt: "Dra. Joseline Fritz Cifuentes",
     },
 ];
@@ -75,7 +75,7 @@ const Equipo = () => (
         id="equipo"
         className="py-12 relative bg-fixed bg-center text-foreground"
         style={ {
-            backgroundImage: `url('https://tuimagenrx.cl/wp-content/uploads/2024/03/equipo.webp')`,
+            backgroundImage: `url('/equipo.webp')`,
         } }
     >
         <div className="container mx-auto px-6">

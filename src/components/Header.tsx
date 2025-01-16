@@ -9,7 +9,6 @@ import
     SheetContent,
     SheetTrigger,
 } from "@/components/ui/sheet"
-import astroLogo from '/public/astro.svg';
 
 const navItems = [
     { name: "Inicio", href: "/" },
@@ -29,7 +28,7 @@ export function Header ()
         <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="flex h-16 items-center justify-between px-4">
                 <a href="/" className="flex items-center space-x-2">
-                    <img src={ astroLogo.src } width="115" height="48" alt="Logo" />
+                    <img src="/Logo-Transparente.webp" width="115" height="48" alt="Logo" />
                 </a>
                 <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
                     { navItems.map( ( item ) => (
