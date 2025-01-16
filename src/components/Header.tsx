@@ -28,7 +28,13 @@ export function Header ()
         <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="flex h-16 items-center justify-between px-4">
                 <a href="/" className="flex items-center space-x-2">
-                    <img src="/Logo-Transparente.webp" width="150" height="53" alt="Logo" />
+                    <img
+                        src="/Logo-Transparente.webp"
+                        width="150"
+                        height="53"
+                        alt="Logo"
+                        className="w-auto h-auto max-w-[150px] max-h-[53px]"
+                    />
                 </a>
                 <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
                     { navItems.map( ( item ) => (
