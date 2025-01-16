@@ -37,7 +37,7 @@ export const Footer = () =>
                             src="/Logo-Transparente.webp"
                             alt="TuImagenRx Logo"
                             width={192}
-                            height={80}
+                            height={68}
                             loading="lazy"
                             className="w-48 h-20"
                         />
