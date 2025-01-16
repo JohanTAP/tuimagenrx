@@ -14,7 +14,7 @@ const branches = [
         email: "contacto@tuimagenrx.cl",
         mapLink: "https://maps.app.goo.gl/KFa7piJNLRVbJLfQ8",
         hours: [ "Lun - Vie de 09:00 a 18:30", "Sábados de 10:00 a 13:30" ],
-        image: "https://tuimagenrx.cl/wp-content/uploads/2024/03/edificio-plaza.webp",
+        image: "/edificio-plaza.webp",
     },
     {
         name: "Talca Las Rastras",
@@ -25,7 +25,7 @@ const branches = [
         email: "contacto@tuimagenrx.cl",
         mapLink: "https://maps.app.goo.gl/qEecv72QVDCJ8oCN8",
         hours: [ "Lun - Vie de 09:00 a 14:00 y 15:00 a 18:30", "Sábados de 10:00 a 13:30" ],
-        image: "https://tuimagenrx.cl/wp-content/uploads/2024/02/edificio-centro-las-rastras.jpg",
+        image: "/edificio-centro-las-rastras.webp",
     },
     {
         name: "Chillán",
@@ -36,7 +36,7 @@ const branches = [
         email: "contacto@tuimagenrx.cl",
         mapLink: "https://maps.app.goo.gl/5McqFJH4riCVhgeV7",
         hours: [ "Lun - Vie de 09:00 a 18:30", "Sábados de 10:00 a 13:30" ],
-        image: "https://tuimagenrx.cl/wp-content/uploads/2024/03/chillan.webp",
+        image: "/chillan.webp",
     },
     {
         name: "Talca Pichimapu",
@@ -47,7 +47,7 @@ const branches = [
         email: "contacto@tuimagenrx.cl",
         mapLink: "http://maps.app.goo.gl/8Q87wTrSmVcDBuHD7",
         hours: [ "Lun - Vie de 10:00 a 14:00 y 15:00 a 19:00", "Sábado Cerrado" ],
-        image: "https://tuimagenrx.cl/wp-content/uploads/2024/03/centro-pichimapu.webp",
+        image: "/centro-pichimapu.webp",
     },
 ];
 
