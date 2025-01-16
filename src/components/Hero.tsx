@@ -10,7 +10,7 @@ export function Hero ()
                 muted
                 className="absolute top-0 left-0 min-h-full min-w-full object-cover"
             >
-                <source src="@/assets/video.mp4" type="video/mp4" />
+                <source src="/public/video.mp4" type="video/mp4" />
                 Tu navegador no soporta el tag de video.
             </video>
 

@@ -9,7 +9,7 @@ import
     SheetContent,
     SheetTrigger,
 } from "@/components/ui/sheet"
-import astroLogo from '@/assets/astro.svg';
+import astroLogo from '/public/astro.svg';
 
 const navItems = [
     { name: "Inicio", href: "/" },
