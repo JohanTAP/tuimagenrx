@@ -1,4 +1,7 @@
-import React from "react";
+"use client";
+
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { useInView } from "react-intersection-observer";
 
 const services = [
     {
@@ -100,42 +103,46 @@ interface ServiceCardProps
     description: string;
     image: string;
     alt: string;
+    delay: number;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ( {
-    title,
-    description,
-    image,
-    alt,
-} ) => (
-    <div className="group relative w-full sm:w-1/2 lg:w-1/3 p-4">
+const ServiceCard: React.FC<ServiceCardProps> = ( { title, description, image, alt, delay } ) =>
+{
+    const { ref, inView } = useInView( { triggerOnce: true, threshold: 0.2 } );
+
+    return (
         <div
-            className="flex flex-col h-full overflow-hidden rounded-lg bg-card text-card-foreground shadow-lg transition-transform transform group-hover:scale-105"
-            style={ {
-                borderRadius: "var(--radius)",
-            } }
+            ref={ ref }
+            className={ `relative w-full transform-gpu transition-all duration-500 ease-out 
+                ${ inView ? "opacity-100 scale-100" : "opacity-0 scale-95" }` }
+            style={ { transitionDelay: `${ delay }s` } }
         >
-            <div
-                className="h-64 bg-cover bg-center"
-                style={ {
-                    backgroundImage: `url(${ image })`,
-                } }
-                role="img"
-                aria-label={ alt }
-            ></div>
-            <div className="p-6 flex flex-col justify-between flex-grow">
-                <h3 className="text-xl font-bold text-primary mb-2">{ title }</h3>
-                <p className="text-muted-foreground">{ description }</p>
-            </div>
+            <Card className="group relative overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-[1.02]">
+                <div
+                    className="h-48 w-full bg-cover bg-center"
+                    style={ { backgroundImage: `url(${ image })` } }
+                    role="img"
+                    aria-label={ alt }
+                ></div>
+
+                <div className="p-6 flex flex-col justify-between">
+                    <CardHeader>
+                        <CardTitle className="text-lg font-bold text-primary">{ title }</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <CardDescription className="text-sm text-muted-foreground">{ description }</CardDescription>
+                    </CardContent>
+                </div>
+            </Card>
         </div>
-    </div>
-);
+    );
+};
 
 const Examenes = () => (
     <section id="examenes" className="py-12 bg-background text-foreground">
         <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold mb-4">
+                <h2 className="text-4xl font-bold">
                     <span
                         style={ {
                             fontSize: "50px",
@@ -149,7 +156,7 @@ const Examenes = () => (
                     </span>
                 </h2>
             </div>
-            <div className="flex flex-wrap -mx-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 { services.map( ( service, index ) => (
                     <ServiceCard
                         key={ index }
@@ -157,6 +164,7 @@ const Examenes = () => (
                         description={ service.description }
                         image={ service.image }
                         alt={ service.alt }
+                        delay={ Math.min( index * 0.15, 0.6 ) }
                     />
                 ) ) }
             </div>

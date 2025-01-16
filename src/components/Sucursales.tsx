@@ -1,4 +1,8 @@
+"use client";
+
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { MapPin, Mail, Clock, Phone } from "lucide-react";
+import { useInView } from "react-intersection-observer";
 
 const branches = [
     {
@@ -58,68 +62,74 @@ interface BranchCardProps
     mapLink: string;
     hours: string[];
     image: string;
+    delay: number;
 }
 
-const BranchCard: React.FC<BranchCardProps> = ( { name, address, building, whatsapp, whatsappLink, email, mapLink, hours, image } ) => (
-    <div className="group relative w-full h-full">
-        <div className="flex flex-col sm:flex-row h-full max-w-2xl overflow-hidden rounded-lg bg-card text-card-foreground shadow-lg border border-border transition-transform transform group-hover:scale-[1.02]">
-            <div
-                className="w-full sm:w-1/3 h-48 sm:h-auto bg-cover bg-center"
-                style={ { backgroundImage: `url(${ image })` } }
-                role="img"
-                aria-label={ name }
-            ></div>
-            <div className="w-full sm:w-2/3 p-6 flex flex-col justify-center">
-                <h3 className="text-lg font-bold text-foreground">{ name }</h3>
-                <p className="text-sm text-muted-foreground flex items-center">
-                    <MapPin className="w-4 h-4 mr-2" /> { address }
-                </p>
-                <p className="text-sm text-muted-foreground">{ building }</p>
+const BranchCard: React.FC<BranchCardProps> = ( { name, address, building, whatsapp, whatsappLink, email, mapLink, hours, image, delay } ) =>
+{
+    const { ref, inView } = useInView( { triggerOnce: true, threshold: 0.1 } );
 
-                <div className="mt-2 space-y-1 text-sm">
-                    <a href={ whatsappLink } className="flex items-center text-primary hover:underline">
-                        <Phone className="w-4 h-4 mr-2" /> { whatsapp }
-                    </a>
-                    <a href={ `mailto:${ email }` } className="flex items-center text-primary hover:underline">
-                        <Mail className="w-4 h-4 mr-2" /> { email }
-                    </a>
-                    <div className="flex items-center">
-                        <Clock className="w-4 h-4 mr-2" />
-                        <div className="text-muted-foreground">
-                            { hours.map( ( line, index ) => (
-                                <p key={ index }>{ line }</p>
-                            ) ) }
+    return (
+        <div
+            ref={ ref }
+            className={ `w-full transition-all duration-700 ease-out transform 
+                ${ inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10" }` }
+            style={ { transitionDelay: `${ delay }s` } }
+        >
+            <Card className="group relative flex sm:flex-row h-80 overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-[1.02]">
+                <div className="w-1/3 h-full">
+                    <img
+                        src={ image }
+                        alt={ name }
+                        className="w-full h-full object-cover"
+                    />
+                </div>
+
+                <div className="w-2/3 p-6 flex flex-col justify-center">
+                    <CardHeader>
+                        <CardTitle className="text-lg font-bold text-primary">{ name }</CardTitle>
+                        <p className="text-sm text-muted-foreground flex items-center">
+                            <MapPin className="w-4 h-4 mr-2" /> { address }
+                        </p>
+                        <p className="text-sm text-muted-foreground">{ building }</p>
+                    </CardHeader>
+
+                    <CardContent>
+                        <div className="space-y-1 text-sm">
+                            <a href={ whatsappLink } className="flex items-center text-primary hover:underline">
+                                <Phone className="w-4 h-4 mr-2" /> { whatsapp }
+                            </a>
+                            <a href={ `mailto:${ email }` } className="flex items-center text-primary hover:underline">
+                                <Mail className="w-4 h-4 mr-2" /> { email }
+                            </a>
+                            <div className="flex items-center">
+                                <Clock className="w-4 h-4 mr-2" />
+                                <div className="text-muted-foreground">
+                                    { hours.map( ( line, index ) => (
+                                        <p key={ index }>{ line }</p>
+                                    ) ) }
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div className="mt-3">
-                    <a href={ mapLink } className="inline-block bg-primary text-primary-foreground px-3 py-2 text-sm rounded-lg shadow-md hover:bg-primary/90 transition">
-                        Ver en Google Maps
-                    </a>
+                        <div className="mt-3">
+                            <a href={ mapLink } className="inline-block bg-primary text-primary-foreground px-3 py-2 text-sm rounded-lg shadow-md hover:bg-primary/90 transition">
+                                Ver en Google Maps
+                            </a>
+                        </div>
+                    </CardContent>
                 </div>
-            </div>
-
+            </Card>
         </div>
-    </div>
-);
+    );
+};
 
 const Sucursales = () => (
-    <section
-        id="sucursales"
-        className="py-12 bg-gradient-to-b from-[#e9e6f3] to-[#ffffff] text-foreground relative"
-    >
+    <section id="sucursales" className="py-12 bg-gradient-to-b from-[#e6e4f1] to-[#fdfdfd] text-foreground relative">
         <div className="container mx-auto px-6">
             <div className="text-center mb-8">
-                <h2 className="text-4xl font-bold mb-4">
-                    <span
-                        style={ {
-                            fontSize: "50px",
-                            transform: "skew(-10deg)",
-                            display: "inline-block",
-                            fontWeight: "bold",
-                        } }
-                    >
+                <h2 className="text-4xl font-bold">
+                    <span style={ { fontSize: "50px", transform: "skew(-10deg)", display: "inline-block", fontWeight: "bold", color: "hsl(var(--primary))" } }>
                         Nuestras Sucursales
                     </span>
                 </h2>
@@ -127,7 +137,7 @@ const Sucursales = () => (
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 { branches.map( ( branch, index ) => (
-                    <BranchCard key={ index } { ...branch } />
+                    <BranchCard key={ index } { ...branch } delay={ Math.min( index * 0.15, 0.6 ) } />
                 ) ) }
             </div>
         </div>

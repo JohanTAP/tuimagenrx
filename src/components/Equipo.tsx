@@ -1,3 +1,8 @@
+"use client";
+
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { useInView } from "react-intersection-observer";
+
 const teamMembers = [
     {
         name: "Dra. Paula Ortiz Cantos",
@@ -29,32 +34,41 @@ interface TeamCardProps
     description: string;
     image: string;
     alt: string;
+    delay: number;
 }
 
-const TeamCard: React.FC<TeamCardProps> = ( { name, title, description, image, alt } ) => (
-    <div className="group relative w-full sm:w-1/2 lg:w-1/3 p-4">
+const TeamCard: React.FC<TeamCardProps> = ( { name, title, description, image, alt, delay } ) =>
+{
+    const { ref, inView } = useInView( { triggerOnce: true, threshold: 0.1 } );
+
+    return (
         <div
-            className="flex flex-col h-full overflow-hidden rounded-lg bg-card text-card-foreground shadow-md border transition-transform transform group-hover:scale-105"
-            style={ {
-                borderRadius: "var(--radius)",
-            } }
+            ref={ ref }
+            className={ `w-full transition-all duration-700 ease-out transform 
+                ${ inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10" }` }
+            style={ { transitionDelay: `${ delay }s` } }
         >
-            <div
-                className="h-64 bg-cover bg-center"
-                style={ {
-                    backgroundImage: `url(${ image })`,
-                } }
-                role="img"
-                aria-label={ alt }
-            ></div>
-            <div className="p-6 flex flex-col justify-between flex-grow">
-                <h3 className="text-xl font-bold text-foreground mb-2">{ name }</h3>
-                { title && <p className="text-muted-foreground mb-1">{ title }</p> }
-                <p className="text-muted-foreground">{ description }</p>
-            </div>
+            <Card className="group relative h-80 overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-[1.02] flex flex-col">
+                <div
+                    className="h-40 w-full bg-cover bg-center"
+                    style={ { backgroundImage: `url(${ image })` } }
+                    role="img"
+                    aria-label={ alt }
+                ></div>
+
+                <div className="flex flex-col justify-between flex-grow p-6">
+                    <CardHeader>
+                        <CardTitle className="text-lg font-bold text-primary">{ name }</CardTitle>
+                        { title && <p className="text-muted-foreground text-sm">{ title }</p> }
+                    </CardHeader>
+                    <CardContent>
+                        <CardDescription className="text-sm text-muted-foreground">{ description }</CardDescription>
+                    </CardContent>
+                </div>
+            </Card>
         </div>
-    </div>
-);
+    );
+};
 
 const Equipo = () => (
     <section
@@ -66,20 +80,21 @@ const Equipo = () => (
     >
         <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold mb-4">
+                <h2 className="text-4xl font-bold">
                     <span
                         style={ {
                             fontSize: "50px",
                             transform: "skew(-10deg)",
                             display: "inline-block",
                             fontWeight: "bold",
+                            color: "hsl(var(--primary))",
                         } }
                     >
                         Nuestro Equipo
                     </span>
                 </h2>
             </div>
-            <div className="flex flex-wrap -mx-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 { teamMembers.map( ( member, index ) => (
                     <TeamCard
                         key={ index }
@@ -88,6 +103,7 @@ const Equipo = () => (
                         description={ member.description }
                         image={ member.image }
                         alt={ member.alt }
+                        delay={ Math.min( index * 0.15, 0.6 ) }
                     />
                 ) ) }
             </div>
