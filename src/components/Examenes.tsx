@@ -124,7 +124,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ( {
                 aria-label={ alt }
             ></div>
             <div className="p-6 flex flex-col justify-between flex-grow">
-                <h3 className="text-xl font-bold text-foreground mb-2">{ title }</h3>
+                <h3 className="text-xl font-bold text-primary mb-2">{ title }</h3>
                 <p className="text-muted-foreground">{ description }</p>
             </div>
         </div>
@@ -135,10 +135,19 @@ const Examenes = () => (
     <section id="examenes" className="py-12 bg-background text-foreground">
         <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold mb-4">Nuestros Servicios</h2>
-                <p className="text-muted-foreground">
-                    Descubre nuestra gama de servicios de radiología de alta calidad.
-                </p>
+                <h2 className="text-4xl font-bold mb-4">
+                    <span
+                        style={ {
+                            fontSize: "69px",
+                            transform: "skew(-10deg)",
+                            display: "inline-block",
+                            fontWeight: "bold",
+                            color: "hsl(var(--primary))", // Asegurar color primario
+                        } }
+                    >
+                        Nuestros Servicios
+                    </span>
+                </h2>
             </div>
             <div className="flex flex-wrap -mx-4">
                 { services.map( ( service, index ) => (
