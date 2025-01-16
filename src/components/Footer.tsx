@@ -39,7 +39,6 @@ export const Footer = () =>
                             width={192}
                             height={68}
                             loading="lazy"
-                            className="w-48 h-20"
                         />
                         <p className="text-zinc-700 text-sm mt-3">
                             Radiografías dentales digitales en Talca y Chillán
