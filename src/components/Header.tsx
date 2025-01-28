@@ -25,7 +25,7 @@ export function Header ()
     const [ isOpen, setIsOpen ] = useState( false )
 
     return (
-        <header className="sticky top-0 z-50 bg-primary backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <header className="sticky top-0 z-50 bg-gradient-to-r from-primary to-primary/65 backdrop-blur-sm shadow-md">
             <div className="flex h-16 items-center justify-between px-4">
                 <a href="/" className="flex items-center space-x-2">
                     <img
@@ -33,7 +33,7 @@ export function Header ()
                         width="150"
                         height="53"
                         alt="Logo"
-                        className="w-auto h-auto max-w-[150px] max-h-[53px]"
+                        className="w-auto h-auto max-w-[150px] max-h-[53px] filter drop-shadow"
                     />
                 </a>
                 <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
